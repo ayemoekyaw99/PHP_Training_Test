@@ -20,23 +20,28 @@
             <label for="file">Select File:</label>
             <input type="file" name="file" id="file" class="form-control" required>
             <br>
-            <input type="submit" value="Upload" class="btn btn-success">
+            <input type="submit" value="Upload" class="btn btn-success" name="btnUpload">
           </form>
         </div>
       </div>
     </div>
 </body>
 <?php
-            $folders = scandir('./');
-            foreach ($folders as $folder) {
-                if (is_dir ($folder) && $folder != '.' && $folder != '..' && $folder !='../') {
-                    $files = scandir($folder);
-                    foreach ($files as $file) {
-                        if (is_file("$folder/$file")) {
-                            echo "<img src='$folder/$file' class='img-thumbnail' >";
-                        }
-                    }
+     $folders = scandir('./');
+        foreach ($folders as $folder) {
+          if (is_dir($folder) && $folder != '.' && $folder != '..' && $folder !='../' && $folder!='css' ) {
+              $files = scandir($folder);
+                  foreach ($files as $file) {
+                      if (is_file("$folder/$file")) {
+                        echo "<span class='col-3 d-block mt-3 ms-5'>
+                                  <img src='$folder/$file' class='img-thumbnail d-inline' >
+                                  <span class='d-inline'>$file</span>
+                                  <button class='btn btn-danger d-block col-12'>Delete</button>
+                                </span>";
+                        
+                      }
                 }
-            }
+              }
+        }
 ?>
 </html>
