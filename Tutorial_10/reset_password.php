@@ -1,6 +1,5 @@
 <?php 
     session_start();
-
     require_once 'database.php';
     if (isset($_POST['btnConfirm'])) {
       $newEmail = $_POST['email'];
@@ -13,9 +12,7 @@
         $result = $conn->query($query);
       } else {
         echo "New password and Confrim password must be same";
-      }
-     
-       
+      }  
     if ($result) {
         //return true;
         echo "updated";
