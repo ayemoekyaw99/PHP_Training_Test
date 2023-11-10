@@ -8,7 +8,7 @@
       $userId = $_SESSION['user_id'];
       if ($newPassword === $confirmPassword) {
         $confirmPassword=password_hash($confirmPassword,PASSWORD_BCRYPT);
-        $query = "UPDATE users SET password = '$confirmPassword'  WHERE id = $userId";
+        $query = "UPDATE users SET password = '$confirmPassword'  WHERE email = '$newEmail'";
         $result = $conn->query($query);
       } else {
         echo "New password and Confrim password must be same";

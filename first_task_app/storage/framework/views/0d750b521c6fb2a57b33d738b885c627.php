@@ -1,0 +1,1 @@
+<?php /**PATH C:\Apache24\htdocs\Laravel_Training_Test\first_task_app\resources\views/layout/app.blade.php ENDPATH**/ ?>
