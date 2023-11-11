@@ -11,7 +11,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind('App\Contracts\Services\TaskServiceInterface', 'App\Services\TaskService');
+        $this->app->bind('App\Contracts\Dao\TaskDaoInterface', 'App\Dao\TaskDao');
     }
 
     /**
