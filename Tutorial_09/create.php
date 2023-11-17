@@ -15,16 +15,19 @@
   $errorTitle=$errorContent="";
   $title=$content= "";
   if (isset($_POST['btnCreate'])) {
-      if ($_POST['title'] =="") {
+      if ($_POST['title'] =="")
+      {
         $errorTitle="Needed to fill";  
       } else {
         $title=$_POST['title'];
       }
-      if ($_POST['content'] =="") {
+      if ($_POST['content'] =="")
+      {
         $errorContent="Needed to fill";  
       } else {
         $content=$_POST['content'];
       }
+      
       $isPublish=isset($_POST['isPublish']) ? 1 : 0;
       if ($title != null && $content != null) 
       {
