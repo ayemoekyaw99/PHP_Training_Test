@@ -15,7 +15,6 @@
   $errorTitle=$errorContent="";
   $title=$content= "";
   if (isset($_POST['btnCreate'])) {
-<<<<<<< HEAD
       if ($_POST['title'] =="")
       {
         $errorTitle="Needed to fill";  
@@ -46,34 +45,6 @@
     }
     $conn->close();
   ?>
-=======
-        if($_POST['title'] ==""){
-          $errorTitle="Needed to fill";  
-        } else {
-            $title=$_POST['title'];
-        }
-         if ($_POST['content'] ==""){
-          $errorContent="Needed to fill";  
-        } else {
-            $content=$_POST['content'];
-        }
-        $isPublish=isset($_POST['isPublish']) ? 1 : 0;
-        if ($title != null && $content != null) {
-          $stmt = $conn->prepare("INSERT INTO posts (title, content, is_published) VALUES (?, ?, ?)");
-          $stmt->bind_param("ssi", $title, $content, $isPublish);
-          // Execute the statement
-          if ($stmt->execute()) {
-            $_SESSION['createSuccess'] = true;
-            echo "<script>window.location.href = 'index.php';</script>";
-          } else {
-            echo "Error creating post: " . $stmt->error;
-          }
-          $stmt->close();
-        } 
-    }
-    $conn->close();
-?>
->>>>>>> c2ec224c93bc028ff8aca4414f91f69aa5ac17b2
   <div class="container mt-5">
     <div class="col-6 offset-2">
       <div class="card">
@@ -84,20 +55,15 @@
           <form class="row g-3" method="post">
             <div class="col-md-12">
               <label for="title" class="form-label">Title:</label>
-<<<<<<< HEAD
               <input type="text" class="form-control" id="title" name="title" placeholder="Enter a title">
-=======
               <input type="text" class="form-control" id="title" name="title" placeholder="Enter a title" required>
->>>>>>> c2ec224c93bc028ff8aca4414f91f69aa5ac17b2
               <span class="text-danger"> <?php echo $errorTitle ?></span>
             </div>
             <div class="col-md-12">
               <label for="content" class="form-label">Content:</label>
-<<<<<<< HEAD
               <textarea class="form-control" id="content" rows="3" name="content"></textarea>
-=======
               <textarea class="form-control" id="content" rows="3" name="content" required></textarea>
->>>>>>> c2ec224c93bc028ff8aca4414f91f69aa5ac17b2
+
               <span class="text-danger"> <?php echo $errorContent ?></span>
             </div>
             <div class="col-12">
