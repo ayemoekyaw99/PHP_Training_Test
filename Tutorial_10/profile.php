@@ -32,8 +32,7 @@
                 <li><a class='dropdown-item' href='./logout.php'>Logout</a></li>
               </ul>";
         echo "</li></ul></div></div></nav>";
-    }
-    //print_r ($user['image']);
+    }  
     if (isset($_POST['btnUpdate'])) {
       $newUsername = $_POST['name'];
       $newEmail = $_POST['email'];
