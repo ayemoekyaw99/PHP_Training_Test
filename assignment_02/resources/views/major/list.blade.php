@@ -23,12 +23,8 @@
                 <tbody>
                     @foreach($majors as $major)
                     <tr>
-                        <th>
-                            {{$major->id}}
-                        </th>
-                        <td>
-                            {{$major->name}}
-                        </td>
+                        <th>{{$major->id}}</th>
+                        <td>{{$major->name}}</td>
                         <td>
                             <a href="{{route('major#edit',$major->id)}}" class="btn btn-success btn-sm">Edit</a>
                             <a href="{{route('major#delete',$major->id)}}" class="btn btn-danger btn-sm">Delete</a>

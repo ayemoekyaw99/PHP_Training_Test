@@ -26,9 +26,8 @@
                     <div class="invalid-feedback">{{$message}}</div>
                     @enderror
                 </div>
-
                 <div class="d-flex justify-content-between">
-                    <a href="major_list.php" type="submit" class="btn btn-secondary">Back</a>
+                    <a href="{{route('majors#list')}}" type="submit" class="btn btn-secondary">Back</a>
                     <button type="submit" class="btn btn-primary">Update</button>
                 </div>
             </form>
