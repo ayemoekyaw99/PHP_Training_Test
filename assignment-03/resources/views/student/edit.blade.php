@@ -67,7 +67,6 @@
                     <a href="{{route('students#list')}}" type="submit" class="btn btn-secondary">Back</a>
                     <button type="submit" class="btn btn-primary">Update</button>
                 </div>
-
             </form>
         </div>
     </div>

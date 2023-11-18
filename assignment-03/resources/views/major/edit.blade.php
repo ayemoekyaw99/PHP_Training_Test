@@ -5,7 +5,7 @@
 
 @section('content')
 <div class="container">
-    <div class=" mt-3">
+    <div class="mt-3">
         @if (session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <span class="text-center">{{ session('success') }}</span>
@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="d-flex justify-content-between">
-                    <a href="major_list.php" type="submit" class="btn btn-secondary">Back</a>
+                    <a href="{{route('majors#list')}}" type="submit" class="btn btn-secondary">Back</a>
                     <button type="submit" class="btn btn-primary">Update</button>
                 </div>
             </form>
