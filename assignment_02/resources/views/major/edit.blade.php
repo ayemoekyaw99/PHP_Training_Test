@@ -21,7 +21,7 @@
                 @csrf
                 <div class="form-group">
                     <label for="">Name</label>
-                    <input type="text" class="form-control @error('name') is-invalid @enderror" id="" placeholder="name" name="name" value="{{$major->name}}">
+                    <input type="text" class="form-control @error('name') is-invalid @enderror"  placeholder="name" name="name" value="{{$major->name}}">
                     @error('name')
                     <div class="invalid-feedback">{{$message}}</div>
                     @enderror
