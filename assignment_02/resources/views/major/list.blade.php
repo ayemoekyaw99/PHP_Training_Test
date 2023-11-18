@@ -8,9 +8,7 @@
         <a href="{{route('major#create')}}" class="btn btn-primary btn-sm mb-3">Create</a>
     </div>
     <div class="card">
-        <h3 class="card-header">
-            Major Lists
-        </h3>
+        <h3 class="card-header">Major Lists</h3>
         <div class="card-body">
             <table class="table table-borderless table-striped">
                 <thead>
