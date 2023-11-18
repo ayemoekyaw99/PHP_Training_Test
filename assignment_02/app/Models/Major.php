@@ -12,10 +12,10 @@ class Major extends Model
    protected $fillable = [
         'name'
     ];
+    protected $guarded;
 
-public function students()
+    public function students()
     {
         return $this->hasMany(Student::class,'major_id','id');
     }
-
 }

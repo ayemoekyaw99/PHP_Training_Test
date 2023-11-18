@@ -8,7 +8,7 @@ use App\Models\Major;
 class MajorDao implements MajorDaoInterface
 {
     /**
-     * sample function 
+     * sample function
      *
      * @return string
      */
@@ -19,7 +19,7 @@ class MajorDao implements MajorDaoInterface
 
     /**
      * Major create
-     
+
      * @param mixed $data
      * @return void
      */
@@ -37,9 +37,8 @@ class MajorDao implements MajorDaoInterface
     {
         Major::destroy($id);
     }
-
     /**
-     * sample function 
+     * sample function
      *
      * @return string
      */
@@ -48,10 +47,9 @@ class MajorDao implements MajorDaoInterface
         return Major::find($id);
     }
 
-
     /**
   * Major update
-  
+
   * @param mixed $data
   * @return void
   */
@@ -59,6 +57,5 @@ class MajorDao implements MajorDaoInterface
     {
         $major = Major::find($id);
         $major->update($data);
-
     }
 }

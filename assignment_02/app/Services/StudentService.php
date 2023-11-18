@@ -44,21 +44,21 @@ class StudentService implements StudentServiceInterface
     /**
      * sample function
      *
-     * @return string
+     * @return void
      */
     public function create(array $data)
     {
-        return $this->studentDao->create($data);
+        $this->studentDao->create($data);
     }
 
     /**
      * sample function
      *
-     * @return string
+     * @return void
      */
     public function destroy(int $id)
     {
-        return $this->studentDao->destroy($id);
+         $this->studentDao->destroy($id);
     }
 
     /**

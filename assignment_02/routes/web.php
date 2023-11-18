@@ -23,11 +23,11 @@ Route::get('/major/edit/{id}', [MajorController::class, 'edit'])->name('major#ed
 Route::post('/major/update/{id}', [MajorController::class, 'update'])->name('major#update');
 
 Route::get('/', [StudentController::class, 'index'])->name('students#list');
-Route::get('/student/create', [StudentController::class, 'create'])->name('student#create');
+Route::get('/student/create', [StudentController::class, 'createStudent'])->name('student#create');
 Route::post('/student/store', [StudentController::class, 'store'])->name('student#store');
 Route::get('/student/delete/{id}', [StudentController::class, 'delete'])->name('student#delete');
 Route::get('/student/edit/{id}', [StudentController::class, 'edit'])->name('student#edit');
-Route::post('/student/update/{id}', [StudentController::class, 'update'])->name('student#update');
+Route::post('/student/update/{id}', [StudentController::class, 'updateStudent'])->name('student#update');
 
 Route::get('/student/export', [ExcelController::class, 'export'])->name('student#export');
 Route::post('/student/import', [ExcelController::class, 'import'])->name('student#import');
