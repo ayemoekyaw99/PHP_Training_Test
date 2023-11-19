@@ -37,7 +37,7 @@ class MajorService implements MajorServiceInterface
      */
     public function create(array $data)
     {
-        return $this->majorDao->create($data);
+        $this->majorDao->create($data);
     }
 
     /**
@@ -47,9 +47,8 @@ class MajorService implements MajorServiceInterface
      */
     public function destroy(int $id)
     {
-        return $this->majorDao->destroy($id);
+        $this->majorDao->destroy($id);
     }
-
     /**
      * sample function
      *
@@ -58,7 +57,6 @@ class MajorService implements MajorServiceInterface
     public function getMajorById(int $id)
     {
         return $this->majorDao->find($id);
-
     }
 
     /**

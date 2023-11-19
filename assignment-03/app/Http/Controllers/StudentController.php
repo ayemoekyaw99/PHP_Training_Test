@@ -42,7 +42,7 @@ class StudentController extends Controller
      *
      *return  @string
      */
-    public function create()
+    public function createStudent()
     {
         $majors = $this->studentService->getAllMajors();
         return view('student.create', compact('majors'));
@@ -87,7 +87,7 @@ class StudentController extends Controller
      *
      *return @string
      */
-    public function update(StudentRequest $request, int $id)
+    public function updateStudent(StudentRequest $request, int $id)
     {
         $this->studentService->update($request->all(), $id);
         return back()->with(['success' => 'Successful']);

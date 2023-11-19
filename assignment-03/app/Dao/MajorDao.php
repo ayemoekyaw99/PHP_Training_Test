@@ -16,7 +16,7 @@ class MajorDao implements MajorDaoInterface
     {
         return Major::all();
     }
-
+    
     /**
      * Major create
 
@@ -47,20 +47,15 @@ class MajorDao implements MajorDaoInterface
     {
         return Major::find($id);
     }
-
-
+    
     /**
   * Major update
-
   * @param mixed $data
   * @return void
   */
-    public function update(array $data, int $id): void
+    public function update(array $data, int $id):void
     {
         $major = Major::find($id);
         $major->update($data);
-
     }
 }
-
-

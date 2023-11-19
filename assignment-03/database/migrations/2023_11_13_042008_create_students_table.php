@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('email', 100)->nullable(false);
             $table->text('address')->nullable(false);
             $table->timestamps();
-            $table->foreign('major_id')->references('id')->on('majors');
         });
     }
 

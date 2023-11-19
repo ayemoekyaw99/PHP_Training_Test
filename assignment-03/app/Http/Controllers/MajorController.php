@@ -83,6 +83,5 @@ class MajorController extends Controller
     {
         $this->majorService->update($request->all(), $id);
         return back()->with(['success' => 'Successful']);
-
     }
 }

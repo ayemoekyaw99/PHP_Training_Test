@@ -48,7 +48,7 @@ class StudentService implements StudentServiceInterface
      */
     public function create(array $data)
     {
-        return $this->studentDao->create($data);
+        $this->studentDao->create($data);
     }
 
     /**
@@ -58,7 +58,7 @@ class StudentService implements StudentServiceInterface
      */
     public function destroy(int $id)
     {
-        return $this->studentDao->destroy($id);
+        $this->studentDao->destroy($id);
     }
 
     /**
@@ -77,7 +77,6 @@ class StudentService implements StudentServiceInterface
      *
      * @return string
      */
-
     public function update(array $data, int $id)
     {
         return $this->studentDao->update($data, $id);

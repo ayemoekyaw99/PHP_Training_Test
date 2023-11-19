@@ -2,9 +2,10 @@
 
 namespace App\Dao;
 
-use App\Contracts\Dao\StudentDaoInterface;
-use App\Models\Student;
 use App\Models\Major;
+use App\Models\Student;
+use Illuminate\Support\Facades\DB;
+use App\Contracts\Dao\StudentDaoInterface;
 
 class StudentDao implements StudentDaoInterface
 {
@@ -16,15 +17,27 @@ class StudentDao implements StudentDaoInterface
     public function getAllStudents()
     {
         return Student::select('students.*')
-                            ->leftJoin('majors','students.major_id','majors.id')
-                            ->when(request('searchKey'),function($query){
+                        ->leftJoin('majors','students.major_id','majors.id')
+                        ->when(request('searchKey'),function($query){
                             $key=request('searchKey');
                             $query->where('students.name', 'like', '%' . $key . '%')
-                            ->orWhere('students.email', '=', $key)
-                            ->orWhere('students.phone', '=', $key)
-                            ->orWhere('students.address', 'like', '%' . $key . '%')
-                            ->orWhere('majors.name', 'like', '%' . $key . '%');
-                            })->get();
+                                ->orWhere('students.email', '=', $key)
+                                ->orWhere('students.phone', '=', $key)
+                                ->orWhere('students.address', 'like', '%' . $key . '%')
+                                ->orWhere('majors.name', 'like', '%' . $key . '%');
+                        })->get();
+
+    //   $students = DB::table('students')
+    //        ->leftJoin('majors', 'students.major_id', '=', 'majors.id')
+    //        ->when(request('searchKey'),function($query){
+    //                        $key=request('searchKey');
+    //                       $query->where('students.name', 'like', '%' . $key . '%')
+    //                           ->orWhere('students.email', '=', $key)
+    //                           ->orWhere('students.phone', '=', $key)
+    //                           ->orWhere('students.address', 'like', '%' . $key . '%')
+    //                            ->orWhere('majors.name', 'like', '%' . $key . '%');
+    //                    })->get();
+    //        return $students;
     }
 
     /**
@@ -78,6 +91,5 @@ class StudentDao implements StudentDaoInterface
     {
         $student = Student::find($id);
         $student->update($data);
-
     }
 }
