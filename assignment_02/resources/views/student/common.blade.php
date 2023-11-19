@@ -13,7 +13,7 @@
         <div class="invalid-feedback">{{$message}}</div>
         @enderror
         @foreach($majors as $major)
-        <option value="{{ $major->id }}" @if (!empty($student->major_id==$major->id)) selected @endif>{{ $major->name }}</option>
+        <option value="{{ $major->id }}">{{ $major->name }}</option>
         @endforeach
     </select>
 </div>
