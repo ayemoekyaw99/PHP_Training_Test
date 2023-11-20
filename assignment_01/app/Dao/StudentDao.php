@@ -69,6 +69,5 @@ class StudentDao implements StudentDaoInterface
     {
         $student = Student::find($id);
         $student->update($data);
-
     }
 }

@@ -48,7 +48,6 @@ class MajorDao implements MajorDaoInterface
         return Major::find($id);
     }
 
-
     /**
   * Major update
 
@@ -59,6 +58,5 @@ class MajorDao implements MajorDaoInterface
     {
         $major = Major::find($id);
         $major->update($data);
-
     }
 }

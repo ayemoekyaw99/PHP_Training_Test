@@ -91,6 +91,5 @@ class StudentController extends Controller
     {
         $this->studentService->update($request->all(), $id);
         return back()->with(['success' => 'Successful']);
-
     }
 }

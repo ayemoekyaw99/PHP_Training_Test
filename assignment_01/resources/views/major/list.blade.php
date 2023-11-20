@@ -21,20 +21,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach($majors as $major): ?>
+                    @foreach($majors as $major)
                     <tr>
-                        <th>
-                            <?php echo $major->id; ?>
-                        </th>
-                        <td>
-                            <?php echo $major->name; ?>
-                        </td>
+                        <th>{{ $major->id }}</th>
+                        <td>{{ $major->name }}</td>
                         <td>
                             <a href="{{route('major#edit',$major->id)}}" class="btn btn-success btn-sm">Edit</a>
                             <a href="{{route('major#delete',$major->id)}}" class="btn btn-danger btn-sm">Delete</a>
                         </td>
                     </tr>
-                    <?php endforeach; ?>
+                    @endforeach
                 </tbody>
             </table>
         </div>
