@@ -1,16 +1,13 @@
 <?php 
- require_once 'database.php';
- require_once 'vendor/autoload.php';
-
-session_start();
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
-$mail = new PHPMailer(true);
-   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  require_once 'database.php';
+  require_once 'vendor/autoload.php';
+  session_start();
+  use PHPMailer\PHPMailer\PHPMailer;
+  use PHPMailer\PHPMailer\SMTP;
+  use PHPMailer\PHPMailer\Exception;
+  $mail = new PHPMailer(true);
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $email = $_POST['email'];
-      
       $sql = "SELECT * FROM users WHERE email = ?";
       $stmt = $conn->prepare($sql);
       $stmt->bind_param("s", $email);
@@ -22,12 +19,9 @@ $mail = new PHPMailer(true);
           $password=$user['password'];
            $basePath = $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
           $basePath = rtrim($basePath, '/');
-
         $link = "<a href='reset_password.php'>Click To Reset password</a>";
-
         // Initialize PHPMailer
         $mail = new PHPMailer(true);
-
         try {
             // SMTP configuration
             $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      
@@ -49,7 +43,6 @@ $mail = new PHPMailer(true);
             
             $mail->Subject = 'Reset Password';
             $mail->Body = 'Click On This Link to Reset Password ' . $link . '.';
-
             // Send the email
             if ($mail->send()) {
                 $_SESSION['mail_sent'] = true;
@@ -64,7 +57,6 @@ $mail = new PHPMailer(true);
         header("Location: forget_password.php");
         exit;
     }
-    
   }
  $conn->close();
 ?>
