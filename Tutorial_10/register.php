@@ -17,31 +17,31 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
        if ($_POST['name'] =="")
       {
-        $errorName="Needed to fill";  
+        $errorName="Name is required";  
       } else {
         $name = $_POST['name'];
       }
       if ($_POST['email'] =="")
       {
-        $errorEmail="Needed to fill";  
+        $errorEmail="Email is required";  
       } else {
        $email = $_POST['email'];
       }
       if ($_POST['password'] =="")
       {
-        $errorPassword="Needed to fill";  
+        $errorPassword="Password is required";  
       } else {
         $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
       }
       if ($_POST['address'] =="")
       {
-        $errorAddress="Needed to fill";  
+        $errorAddress="Address is required";  
       } else {
         $address = $_POST['address'];
       }
       if ($_POST['phone'] =="")
       {
-        $errorPhone="Needed to fill";  
+        $errorPhone="Phone is required";  
       } else {
         $phone = $_POST['phone'];
       }
