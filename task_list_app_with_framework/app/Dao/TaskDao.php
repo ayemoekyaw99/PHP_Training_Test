@@ -14,13 +14,24 @@ class TaskDao implements TaskDaoInterface
      */
     public function getAll()
     {
-    return Task::all();
+        return Task::all();
     }
-    public function create(array $data)
+
+    /**
+     * create function
+     * @return void
+     */
+    public function create(array $data): void
     {
-        return Task::create($data);
+        Task::create($data);
     }
-    public function delete($id){
-        return Task::destroy($id);
+
+    /**
+     * create function
+     * @return void
+     */
+    public function delete(int $id)
+    {
+        Task::destroy($id);
     }
 }

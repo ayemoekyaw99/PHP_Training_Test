@@ -20,13 +20,16 @@
                         <div class="form-group">
                             <label for="task-name" class="col-sm-3 control-label">Task</label>
                             <div class="col-12">
-                                <input type="text" name="name" id="task-name" class="form-control" value="{{ old('task') }}">
+                                <input type="text" name="name" id="task-name" class="form-control @error('name') is-invalid @enderror" value="{{ old('task') }}">
+                                @error('name')
+                                 <div class="invalid-feedback">{{$message}}</div>
+                                 @enderror
                             </div>
                         </div>
                         <div class="form-group mt-3">
                             <div class="col-sm-offset-3 col-sm-6">
                                 <button type="submit" class="btn btn-light">
-                                    <i class="fa fa-btn fa-plus"></i>Add Task
+                                    <i class="fa fa-btn fa-plus"></i> Add Task
                                 </button>
                             </div>
                         </div>
@@ -55,7 +58,7 @@
                                     <form action="{{route('task#delete',$task->id)}}" method="">
                                     @csrf
                                         <button type="submit" class="btn btn-danger">
-                                            <i class="fa fa-btn fa-trash"></i>Delete
+                                            <i class="fa fa-btn fa-trash"></i> Delete
                                         </button>
                                     </form>
                                 </td>
