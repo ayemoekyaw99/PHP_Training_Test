@@ -1,6 +1,7 @@
 <?php
 require_once 'database.php';
-$interval = isset($_GET['interval']) ? $_GET['interval'] : 'yearly';
+    $interval = isset($_GET['interval']) ? $_GET['interval'] : 'yearly';
+    
 // Handle button clicks and set the interval
 if (isset($_POST['weekly'])) {
     $interval = 'weekly';
@@ -28,52 +29,56 @@ if ($result->num_rows > 0) {
         $data[] = $row['views'];
     }
 }
+
+
+// Close the database connection
 $conn->close();
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Post Date Analysis</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-   integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-   crossorigin="anonymous">
-    <!-- Include Chart.js library -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <title>Post Date Analysis</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <!-- Include Chart.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
   <div class="container mt-5">
     <div class="col-12">
-        <a href="index.php" class="btn btn-secondary">Back</a>
-        <form id="chart-type" class="col-4 offset-8" method="post" action="">
-          <button type="submit" class="btn btn-outline-secondary " value="Weekly" name="weekly">Weekly</button>
-          <button type="submit" class="btn btn-outline-secondary " value="Monthly" name="monthly">Monthly</button>
-          <button type="submit" class="btn btn-outline-secondary active" value="Yearly" name="yearly">Yearly</button>
-        </form>
-        <div>
-          <canvas id="myChart"></canvas>
-        </div>
+      <a href="index.php" class="btn btn-secondary">Back</a>
+      <form id="chart-type" class="col-4 offset-8" method="post" action="">
+        <button type="submit" class="btn btn-outline-secondary " value="Weekly" name="weekly">Weekly</button>
+        <button type="submit" class="btn btn-outline-secondary " value="Monthly" name="monthly">Monthly</button>
+        <button type="submit" class="btn btn-outline-secondary active" value="Yearly" name="yearly">Yearly</button>
+      </form>
+      <div>
+        <canvas id="myChart"></canvas>
+      </div>
     </div>
   </div>
   <script>
-       const ctx = document.getElementById('myChart').getContext('2d');
-       new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: <?php echo json_encode($labels); ?>,
-                datasets: [{
-                    label: '#of Posts',
-                    data: <?php echo json_encode($data); ?>,
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    </script>
+  const ctx = document.getElementById('myChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: <?php echo json_encode($labels); ?>,
+      datasets: [{
+        label: '#of Posts',
+        data: <?php echo json_encode($data); ?>,
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+  </script>
 </body>
+
 </html>

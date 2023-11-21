@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Post List</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-   integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-   crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
+
 <body>
   <div class="container mt-5">
-      <a href="create.php" class="btn btn-primary col-1 offset-1">Create</a>
-      <a href="graph.php" class="btn btn-primary col-1 offset-1">Graph</a>
+    <a href="create.php" class="btn btn-primary col-1 offset-1">Create</a>
+    <a href="graph.php" class="btn btn-primary col-1 offset-1">Graph</a>
   </div>
+  </script>
 </body>
+
 <?php 
       require_once 'database.php';
       // Check if the "Delete" button was clicked
@@ -72,5 +74,7 @@
     } else {
         echo "No posts found.";
     }
+
   ?>
+
 </html>

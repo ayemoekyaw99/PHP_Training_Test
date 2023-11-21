@@ -56,14 +56,11 @@
             <div class="col-md-12">
               <label for="title" class="form-label">Title:</label>
               <input type="text" class="form-control" id="title" name="title" placeholder="Enter a title">
-              <input type="text" class="form-control" id="title" name="title" placeholder="Enter a title" required>
               <span class="text-danger"> <?php echo $errorTitle ?></span>
             </div>
             <div class="col-md-12">
               <label for="content" class="form-label">Content:</label>
               <textarea class="form-control" id="content" rows="3" name="content"></textarea>
-              <textarea class="form-control" id="content" rows="3" name="content" required></textarea>
-
               <span class="text-danger"> <?php echo $errorContent ?></span>
             </div>
             <div class="col-12">
