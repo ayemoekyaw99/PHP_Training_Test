@@ -50,7 +50,7 @@ class MajorController extends Controller
     public function store(MajorRequest $request)
     {
         $major = $this->majorService->create($request->all());
-        return response()->json(['success' => true,'major'=>$major]);
+        return response()->json(['success' => true, 'major' => $major]);
     }
 
     /**

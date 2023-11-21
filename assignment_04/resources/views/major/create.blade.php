@@ -1,5 +1,3 @@
-@extends('layout.app')
-
 @section('Major Create')
 @endsection
 

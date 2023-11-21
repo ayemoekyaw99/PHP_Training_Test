@@ -27,6 +27,9 @@ $(document).ready(function() {
                     $('#createMajorForm')[0].reset();
                 }
             },
+            error: function(error) {
+                alert(error);
+            }
         });
     });
 
@@ -41,6 +44,9 @@ $(document).ready(function() {
                     $(`[data-id="${majorId}"]`).closest('tr').remove();
                 }
             },
+            error: function(error) {
+                alert(error);
+            }
         });
     });
 });
