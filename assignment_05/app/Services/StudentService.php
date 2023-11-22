@@ -40,15 +40,16 @@ class StudentService implements StudentServiceInterface
         return $result;
     }
 
-
     /**
      * sample function
      *
-     * @return void
+     * @return string
      */
-    public function create(array $data)
+    public function create(array $data):string
     {
-        $this->studentDao->create($data);
+      return $this->studentDao->create($data);
+
+
     }
 
     /**

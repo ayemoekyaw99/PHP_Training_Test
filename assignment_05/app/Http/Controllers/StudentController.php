@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\DAO\StudentDAO;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use App\Http\Requests\StudentRequest;
 use App\Contracts\Services\StudentServiceInterface;
 use ComposerAutoloaderInit9c491b8531eec05ba41a11d9276a5749;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\AccountCreated;
+
 
 class StudentController extends Controller
 {
@@ -51,12 +55,15 @@ class StudentController extends Controller
     /**
      *show store
      *
-     *return @string
+     *return @collection
      */
     public function store(StudentRequest $request)
     {
-        $this->studentService->create($request->all());
+        $student = $this->studentService->create($request->all());
+        dd($student);
+        Mail::to($student->email)->send(new AccountCreated($student));
         return back()->with(['success' => 'Successful']);
+
     }
 
     /**

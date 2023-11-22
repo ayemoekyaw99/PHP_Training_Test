@@ -32,11 +32,11 @@ class StudentDao implements StudentDaoInterface
      * Student create
 
      * @param mixed $data
-     * @return void
+     * @return string
      */
-    public function create(array $data): void
+    public function create(array $data):string
     {
-        Student::create($data);
+        return Student::create($data);
     }
 
     /**
@@ -67,7 +67,6 @@ class StudentDao implements StudentDaoInterface
    */
     public function update(array $data, int $id): void
     {
-        $student = Student::find($id);
-        $student->update($data);
+        Student::where('id', $id)->update($data);
     }
 }
