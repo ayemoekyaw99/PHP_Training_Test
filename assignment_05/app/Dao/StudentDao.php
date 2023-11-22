@@ -32,11 +32,11 @@ class StudentDao implements StudentDaoInterface
      * Student create
 
      * @param mixed $data
-     * @return string
+     * @return void
      */
-    public function create(array $data):string
+    public function create(array $data): void
     {
-        return Student::create($data);
+        Student::create($data);
     }
 
     /**

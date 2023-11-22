@@ -4,6 +4,8 @@ namespace App\Services;
 
 use App\Contracts\Dao\StudentDaoInterface;
 use App\Contracts\Services\StudentServiceInterface;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\AccountCreated;
 
 class StudentService implements StudentServiceInterface
 {
@@ -43,13 +45,13 @@ class StudentService implements StudentServiceInterface
     /**
      * sample function
      *
-     * @return string
+     * @return void
      */
-    public function create(array $data):string
+    public function create(array $data): void
     {
-      return $this->studentDao->create($data);
-
-
+        $this->studentDao->create($data);
+        $email = $data['email'];
+        Mail::to($email)->send(new AccountCreated());
     }
 
     /**
@@ -59,7 +61,7 @@ class StudentService implements StudentServiceInterface
      */
     public function destroy(int $id)
     {
-         $this->studentDao->destroy($id);
+        $this->studentDao->destroy($id);
     }
 
     /**
@@ -70,7 +72,6 @@ class StudentService implements StudentServiceInterface
     public function getStudentById(int $id)
     {
         return $this->studentDao->find($id);
-
     }
 
     /**

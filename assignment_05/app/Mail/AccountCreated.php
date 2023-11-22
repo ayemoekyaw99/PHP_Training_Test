@@ -15,6 +15,7 @@ class AccountCreated extends Mailable implements ShouldQueue
 
     /**
      * Create a new message instance.
+     *
      */
     public function __construct()
     {
@@ -31,28 +32,8 @@ class AccountCreated extends Mailable implements ShouldQueue
         );
     }
 
-    /**
-     * Get the message content definition.
-     */
-    public function content(): Content
-    {
-        return new Content(
-            view: 'view.name',
-        );
-    }
-
-    /**
-     * Get the attachments for the message.
-     *
-     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
-     */
-    public function attachments(): array
-    {
-        return [];
-    }
-
     public function build()
     {
-        return $this->subject('Account Created')->view('student.create');
+        return $this->subject('Account Created')->view('student.email');
     }
 }

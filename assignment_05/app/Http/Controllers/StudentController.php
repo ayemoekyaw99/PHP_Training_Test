@@ -8,13 +8,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StudentRequest;
 use App\Contracts\Services\StudentServiceInterface;
 use ComposerAutoloaderInit9c491b8531eec05ba41a11d9276a5749;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\AccountCreated;
-
 
 class StudentController extends Controller
 {
-
     private $studentService;
     private $studentDAO;
 
@@ -59,11 +55,8 @@ class StudentController extends Controller
      */
     public function store(StudentRequest $request)
     {
-        $student = $this->studentService->create($request->all());
-        dd($student);
-        Mail::to($student->email)->send(new AccountCreated($student));
-        return back()->with(['success' => 'Successful']);
-
+        $this->studentService->create($request->all());
+        return redirect()->route('students#list')->with(['success' => 'Account Create Successful']);
     }
 
     /**
