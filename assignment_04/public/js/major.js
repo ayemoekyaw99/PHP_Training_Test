@@ -28,7 +28,7 @@ $(document).ready(function() {
                 }
             },
             error: function(error) {
-                alert(error);
+                alert('Major name is required');
             }
         });
     });
@@ -41,11 +41,12 @@ $(document).ready(function() {
             method: 'DELETE',
             success: function(response) {
                 if (response.success) {
+                    alert('Are you sure to delete?');
                     $(`[data-id="${majorId}"]`).closest('tr').remove();
                 }
             },
             error: function(error) {
-                alert(error);
+                alert("Major does not exist");
             }
         });
     });

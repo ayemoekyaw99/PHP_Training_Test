@@ -26,18 +26,6 @@ class StudentDao implements StudentDaoInterface
                     ->orWhere('students.address', 'like', '%' . $key . '%')
                     ->orWhere('majors.name', 'like', '%' . $key . '%');
             })->get();
-
-        //   $students = DB::table('students')
-        //        ->leftJoin('majors', 'students.major_id', '=', 'majors.id')
-        //        ->when(request('searchKey'),function($query){
-        //                        $key=request('searchKey');
-        //                       $query->where('students.name', 'like', '%' . $key . '%')
-        //                           ->orWhere('students.email', '=', $key)
-        //                           ->orWhere('students.phone', '=', $key)
-        //                           ->orWhere('students.address', 'like', '%' . $key . '%')
-        //                            ->orWhere('majors.name', 'like', '%' . $key . '%');
-        //                    })->get();
-        //        return $students;
     }
 
     /**
@@ -89,7 +77,6 @@ class StudentDao implements StudentDaoInterface
    */
     public function update(array $data, int $id): void
     {
-        $student = Student::find($id);
-        $student->update($data);
+        Student::where('id', $id)->update($data);
     }
 }

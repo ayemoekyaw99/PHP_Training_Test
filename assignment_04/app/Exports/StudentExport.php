@@ -2,7 +2,6 @@
 
 namespace App\Exports;
 
-
 use App\Models\Student;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\FromCollection;
