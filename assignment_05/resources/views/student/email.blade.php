@@ -1,0 +1,1 @@
+<p>Welcome to YourApp! Thank you for creating an account.</p>
